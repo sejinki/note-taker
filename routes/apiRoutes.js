@@ -1,5 +1,5 @@
 const app = require("express").Router();
-const db = require("../db/db.json")
+let db = require("../db/db.json")
 const fs = require("fs")
 
 
@@ -25,7 +25,7 @@ app.post("/api/notes", function(req, res){
 
 app.delete("/api/notes/:id", function(req, res){
    let notDeletedNote = []
-   db.foureach(element => {
+   db.forEach(element => {
     if (element.id != req.params.id){
         notDeletedNote.push(element)
     }
